@@ -1,16 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MainView from './components/main-view/main-view';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      movies: [
+        { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...' },
+        { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: '...' },
+        { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...' }
+      ]
+    }
+  }
+
   render() {
     return (
-      <div className="my-flix">
-        <div>Good morning</div>
-      </div>
+      <MainView />
     );
   }
 }
