@@ -1,0 +1,41 @@
+.navbar-container, .navbar-elements__style {
+  background-color: #fff;
+}
+
+.container-style {
+  padding-top: 50px;
+}
+
+.login-form__style {
+  margin: 20px;
+}
+
+.card-style {
+  margin: 20px;
+}
+
+.image-style {
+  width: 286px;
+  height: 400px;
+}
+
+.button-style {
+  margin-left: 180px;
+}
+
+.add-list__button {
+  margin-left: 10px;
+}
+
+.movie-view__card {
+  margin: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #1a1e23;
+  font-family: Playfair Display, serif;
+}
+
+/*# sourceMappingURL=index.8334bb4f.css.map */
