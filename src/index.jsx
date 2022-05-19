@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MainView from './components/main-view/main-view';
+import { NavbarView } from './components/navbar-view/navbar-view';
+import Container from 'react-bootstrap/Container';
+import { Navbar, Nav } from 'react-bootstrap';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -9,7 +12,9 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <MainView />
+      <Container>
+        <MainView />
+      </Container>
     );
   }
 }
