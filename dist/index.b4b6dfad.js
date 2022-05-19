@@ -42186,6 +42186,7 @@ class NavbarView extends _reactDefault.default.Component {
                             className: "me-auto navbar-elements__style",
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                    className: "navbar-element",
                                     href: "#home",
                                     children: "Home"
                                 }, void 0, false, {
@@ -42194,6 +42195,7 @@ class NavbarView extends _reactDefault.default.Component {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                    className: "navbar-element",
                                     href: "#features",
                                     children: "My-Movies"
                                 }, void 0, false, {
@@ -42202,6 +42204,7 @@ class NavbarView extends _reactDefault.default.Component {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
+                                    className: "navbar-element",
                                     href: "#pricing",
                                     children: "Account"
                                 }, void 0, false, {
