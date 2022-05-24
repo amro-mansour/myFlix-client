@@ -80,7 +80,7 @@ class MainView extends React.Component {
       <Router>
         <Row className="main-view justify-content-md-center">
           <Routes>
-            <Route exact path="/" element={<MovieCard />} render={() => {
+            <Route exact path="/" render={() => {
               return movies.map(m => (
                 <Col md={3} key={m._id}>
                   <MovieCard movie={m} />
@@ -89,7 +89,7 @@ class MainView extends React.Component {
             }} />
           </Routes>
           <Routes>
-            <Route path="/movies/:movieId" element={<MovieView />} render={({ match }) => {
+            <Route path="/movies/:movieId" render={({ match }) => {
               return <Col md={8}>
                 <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
               </Col>
