@@ -1,5 +1,11 @@
-$color: steelblue;
+$backgroundColor: #1A1E23;
+$textColor: #FFFFFF;
+$elementsColor: #ffc107;
 
-.my-flix {
-  color: $color;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+  background-color: $backgroundColor;
+  color: $textColor;
 }
