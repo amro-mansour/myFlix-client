@@ -19,6 +19,29 @@ export class MovieView extends React.Component {
     };
   }
 
+  getUser(token) {
+    let user = localStorage.getItem("user");
+    axios
+      .get(`https://amro-mansour-movie-api.herokuapp.com/users/${user}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        //assign the result to the state
+        this.setState({
+          username: response.data.username,
+          password: response.data.password,
+          email: response.data.email,
+          birthday: response.data.birthday,
+          FavouriteMovies: response.data.FavouriteMovies,
+        });
+      })
+      .catch((e) => console.log(e));
+  }
+  componentDidMount() {
+    const accessToken = localStorage.getItem("token");
+    this.getUser(accessToken);
+  }
+
   // Add Favourite movie 
   addFavMovie = () => {
     let token = localStorage.getItem('token');
@@ -29,7 +52,7 @@ export class MovieView extends React.Component {
       axios.post(`https://amro-mansour-movie-api.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
         {
           headers: {
-            Authorization: 'Bearer ' + token
+            Authorization: `Bearer ${token}`
           }
         }).then((response) => {
           console.log(response.data);
@@ -52,9 +75,9 @@ export class MovieView extends React.Component {
   removeFavMovie = () => {
     let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
-    axios.delete(`https://amro-mansour-movie-api.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
+    axios.delete(`https://amro-mansour-movie-api.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
       {
-        headers: { Authorization: 'Bearer ' + token },
+        headers: { Authorization: `Bearer ${token}` },
       }).then((response) => {
         console.log(response.data);
         alert(
