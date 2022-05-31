@@ -31,6 +31,20 @@
   margin: 20px;
 }
 
+.directorCard {
+  margin: 30px;
+}
+
+.directorTitle {
+  color: #000;
+}
+
+
+
+.genreCard {
+  margin: 30px;
+}
+
 * {
   box-sizing: border-box;
   color: #fff;
