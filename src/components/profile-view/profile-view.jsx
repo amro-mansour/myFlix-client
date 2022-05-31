@@ -13,7 +13,7 @@ export function ProfileView({ movies }) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
   const [favouriteMovies, setFavouriteMovies] = useState([]);
-  const [showModal, setShowModal] = useState(false)
+  const [show, setShow] = useState(false); // setting the state for the deleteUser modal 
 
   useEffect(() => {
     getUser()
@@ -27,9 +27,7 @@ export function ProfileView({ movies }) {
     })
       .then((response) => {
         setUsername(response.data.Username)
-        //password: response.data.Password,
         setEmail(response.data.Email)
-        //birthday: response.data.Birthday,
         setFavouriteMovies(response.data.FavouriteMovies)
         console.log(response.data)
       })
@@ -45,6 +43,7 @@ export function ProfileView({ movies }) {
     axios.put(`https://amro-mansour-movie-api.herokuapp.com/users/${user}`, {
       Username: username,
       Email: email, //Email is a variable which holds the email
+      Birthday: birthday,
       Password: password
     },
       {
@@ -52,11 +51,7 @@ export function ProfileView({ movies }) {
           Authorization: 'Bearer ' + token
         }
       }).then((response) => {
-        //setUsername(response.data.Username)
-        //password: response.data.Password,
-        //setEmail(response.data.Email)
-        //birthday: response.data.Birthday,
-        //favouriteMovies: response.data.FavouriteMovies,
+        alert('Your profile has been updated');
         localStorage.setItem('user', response.data.Username),
           console.log(response.data)
       })
@@ -87,19 +82,47 @@ export function ProfileView({ movies }) {
       });
   }
 
-  const renderFavorites = () => {
-    // const { movies } = this.props
+  const renderFavourits = () => {
     console.log(movies)
     if (movies.length + 0) {
 
       return (
-        <div>
-          {favouriteMovies.map((movieId, i) => (
-            <MovieCard key={`${i}-${movieId}`} movie={movies.find(m => m._id == movieId)} />
-          ))}
-        </div>
+        <Row className="justify-content-md-center">
+          <Col md={6} lg={4}>
+            {favouriteMovies.map((movieId, i) => (
+              <MovieCard key={`${i}-${movieId}`} movie={movies.find(m => m._id == movieId)} />
+            ))}
+          </Col>
+        </Row>
       )
     }
+  }
+
+  // Functions needed to open and close the modal (below) to delete a user 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Function that contains the modal to delete a users account 
+  const cancelUserModal = () => {
+
+    return (
+      <>
+        <Modal style={{ background: "transparent" }} show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete your Account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={deleteUser}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
   }
 
 
@@ -116,6 +139,10 @@ export function ProfileView({ movies }) {
             <Form.Label>Email address</Form.Label>
             <Form.Control onChange={(e) => setEmail(e.target.value)} value={email} type="email" placeholder="Enter new email" />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="birthday">
+            <Form.Label>Birthday:</Form.Label>
+            <Form.Control onChange={(e) => setBirthday(e.target.value)} value={birthday} type="date" placeholder="birthday" />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" value={password} placeholder="Password" />
@@ -124,32 +151,21 @@ export function ProfileView({ movies }) {
           <Button variant="warning" onClick={updateUser}>
             Update you profile
           </Button>
-          <Button className='deleteButton' variant="link" onClick={() => setShowModal(true)}>
+
+          {/* This button triggers a modal that's called bellow   */}
+          <Button className='deleteButton' variant="link" onClick={handleShow}>
             Delete your profile
           </Button>
         </Form>
 
-        {showModal &&
+        {/* Calling the function that renders the modal to delete the users account */}
+        {cancelUserModal()}
 
-          <Modal.Dialog style={{ background: "white" }}>
-            <Modal.Header closeButton>
-              <Modal.Title>Are you sure you want to delete your profile?</Modal.Title>
-            </Modal.Header>
+        {/* Calling the function that renders the users favourite movies on the profile page */}
+        {renderFavourits()}
 
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowModal(false)}>Close</Button>
-              <Button variant="primary" onClick={deleteUser} >Delete it</Button>
-            </Modal.Footer>
-          </Modal.Dialog>
-        }
-
-        <div>
-          {renderFavorites()}
-        </div>
       </Container>
-
-
     </>
-
   )
 }
+
