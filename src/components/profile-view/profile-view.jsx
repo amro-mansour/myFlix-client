@@ -88,13 +88,15 @@ export function ProfileView({ movies }) {
 
       return (
         <Row className="justify-content-md-center">
-          <Col md={6} lg={4}>
-            {favouriteMovies.length === 0 ? (<h5>Add some movies to your list</h5>) : (
-              favouriteMovies.map((movieId, i) => (
+
+          {favouriteMovies.length === 0 ? (<h5>Add some movies to your list</h5>) : (
+            favouriteMovies.map((movieId, i) => (
+              <Col md={6} lg={4}>
                 <MovieCard key={`${i}-${movieId}`} movie={movies.find(m => m._id == movieId)} />
-              ))
-            )}
-          </Col>
+              </Col>
+            ))
+          )}
+
         </Row>
       )
     }
