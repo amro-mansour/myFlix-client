@@ -12,4 +12,24 @@ This the client-side of a movies library application. The app will allow users t
 - HTML
 - Parcel
 
+# Get Started
+
+- Clone the [project](https://github.com/amro-mansour/myFlix-client/tree/Final-Task-3.8)
+- Install all dependencies mentioned in package.json
+- cd to the project diretory
+- Run it by:
+
+```bash
+$npm run dev
+```
+
+Note: Please make sure you install parcel v2!
+
+# To run the Project
+
+You can use the command: 
+
+```bash
+parcel src/index.html
+```
 
