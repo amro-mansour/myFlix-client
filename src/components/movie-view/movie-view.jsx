@@ -4,7 +4,6 @@ import './movie-view.scss';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-// /users/:Username/movies/:MovieID
 
 export class MovieView extends React.Component {
 
