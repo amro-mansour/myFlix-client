@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, FormGroup, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 import axios from 'axios';
 
@@ -45,6 +45,7 @@ export function LoginView(props) {
           props.onLoggedIn(data);
         })
         .catch(e => {
+          alert("Your account wasn't found");
           console.log('no such user')
         });
     }
