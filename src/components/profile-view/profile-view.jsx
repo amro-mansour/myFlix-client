@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './profile-view.scss'
-import PropTypes from 'prop-types';
-import { Form, Button, Card, CardGroup, Container, Col, Row, Modal } from 'react-bootstrap';
+import { Form, Button, Container, Col, Row, Modal } from 'react-bootstrap';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
 
 
@@ -156,7 +154,7 @@ export function ProfileView({ movies }) {
             Update you profile
           </Button>
 
-          {/* This button triggers a modal that's called bellow   */}
+          {/* This button triggers a modal called bellow to delete a users account */}
           <Button className='deleteButton' variant="link" onClick={handleShow}>
             Delete your profile
           </Button>
