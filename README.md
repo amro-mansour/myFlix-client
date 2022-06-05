@@ -10,6 +10,6 @@ This the client-side of a movies library application. The app will allow users t
 - React-Redux
 - Redux
 - HTML
-- Percel
+- Parcel
 
 
