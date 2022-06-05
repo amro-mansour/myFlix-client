@@ -91,7 +91,7 @@ export function ProfileView({ movies }) {
 
           {favouriteMovies.length === 0 ? (<h5>Add some movies to your list</h5>) : (
             favouriteMovies.map((movieId, i) => (
-              <Col md={6} lg={4}>
+              <Col md={6} lg={4} key={`${i}-${movieId}`}>
                 <MovieCard key={`${i}-${movieId}`} movie={movies.find(m => m._id == movieId)} />
               </Col>
             ))
