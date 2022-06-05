@@ -10,19 +10,6 @@
   margin: 20px;
 }
 
-.card-style {
-  margin: 20px;
-}
-
-.image-style {
-  width: 286px;
-  height: 400px;
-}
-
-.button-style {
-  margin-left: 180px;
-}
-
 .add-list__button {
   margin-left: 10px;
 }
@@ -40,6 +27,19 @@
 }
 
 
+
+.card-style {
+  margin: 20px;
+}
+
+.image-style {
+  width: 286px;
+  height: 400px;
+}
+
+.button-style {
+  margin-left: 180px;
+}
 
 .genreCard {
   margin: 30px;
