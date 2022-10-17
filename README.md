@@ -33,3 +33,6 @@ You can use the command:
 parcel src/index.html
 ```
 
+## Live version
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/af5b414f-11e0-4771-88ee-5d8cc84ffaf9/deploy-status)](https://app.netlify.com/sites/myflix-movie-library/deploys)
